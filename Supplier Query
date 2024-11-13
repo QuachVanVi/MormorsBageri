@@ -1,0 +1,11 @@
+SELECT
+Name AS Supplier,
+Representative AS 'Contact Person',
+Email,
+Phone,
+AddressLine,
+PostalCode,
+City
+FROM Suppliers INNER JOIN SupplierInfo
+ON SupplierInfo.Id = Suppliers.Id INNER JOIN Addresses
+ON Suppliers.AddressesId = Addresses.Id;

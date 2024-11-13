@@ -1,0 +1,31 @@
+DELETE FROM ProductRecipes;
+INSERT INTO ProductRecipes(
+    Id,
+    Ingredients,
+    DetailsId
+)
+VALUES(
+    1,
+    'Vetemjöl, Vatten, Jäst, Salt, Socker',
+    1
+),
+(
+    2,
+    'Vetemjöl, Socker, Ägg, Smör, Mjölk',
+    2
+),
+(
+    3,
+    'Mjöl, Socker, Fett, Ägg, Bakpulver, Mjölk',
+    3
+),
+(
+    4,
+    'Vetemjöl, Strösocker, Smör, Salt, Jäst, Mjölk ',
+    4
+),
+(
+    5,
+    'Vetemjöl, Bakpulver, Socker, Salt, Ägg, Mjölk, Smör',
+    5
+);

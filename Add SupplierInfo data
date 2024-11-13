@@ -1,0 +1,24 @@
+DELETE FROM SupplierInfo;
+INSERT INTO SupplierInfo(
+    Phone,
+    Email
+)
+VALUES(
+    
+    '020-192424',
+    'JönköpingAB@gmail.com'
+),
+(
+    
+    '023-58770',
+    'FST-konditori@gmail.com'
+),(
+    
+    '08-561 500 00',
+    'IcaSverigeAB@Ica.com'
+),
+(
+    
+    '010-142 61 40',
+    'EverFresh@Fresh.com'
+);

@@ -1,0 +1,37 @@
+DELETE FROM Suppliers;
+INSERT INTO Suppliers(
+    Id,
+    AddressesId,
+    ProductId,
+    Name,
+    Representative
+)
+VALUES
+(
+    1,
+    1,
+    1,
+    'JÖNKÖPING Grossisten AB',
+    'Gustav Andersson'
+),
+(
+    2,
+    2,
+    2,
+    'Konditori AB',
+    'Mathias Salo'
+),
+(
+    3,
+    3,
+    3,
+    'ICA Sverige AB',
+    'Eric Lundberg'
+),
+(
+    4,
+    4,
+    5,
+    'EverFresh AB',
+    'Klem Thomsen'
+);

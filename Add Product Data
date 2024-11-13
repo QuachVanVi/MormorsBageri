@@ -1,0 +1,58 @@
+DELETE FROM Products;
+
+INSERT INTO Products(
+    Id,
+    SupplierId,
+    ItemNumber,
+    ProductRecipeId,
+    Name,
+    Price,
+    Stock
+)
+VALUES
+(
+    1,
+    1,
+    'K2842',
+    1,
+    'Bröd',
+    25,
+    100
+),
+(
+    2,
+    2,
+   'AA657',
+    2,
+    'Tårtor',
+    50,
+    100
+),
+(
+    3,
+    2,
+    'F21S1',
+    3,
+    'Kakor',
+    70,
+    100
+),
+(
+    4,
+    4,
+    'KSAFB',
+    4,
+    'Croissants',
+    60,
+    100
+),
+(
+    5,
+    1,
+    'T92K7',
+    5,
+    'ChokladMuffins',
+    40,
+    200
+);
+

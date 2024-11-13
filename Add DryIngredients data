@@ -1,0 +1,44 @@
+DELETE FROM DryIngredients;
+INSERT INTO DryIngredients(
+    Id,
+    Sugar,
+    Flour,
+    Yeast,
+    BakingSoda
+)
+VALUES(
+    1,
+    '1 msk',
+    '12 dl',
+    '25 g',
+    '0'
+),
+(
+    2,
+    '2 dl',
+    '1 dl',
+    '0',
+    '2 tsk'
+),
+(
+    3,
+    '1 dl',
+    '4,5 dl',
+    '0',
+    '1 tsk'
+),
+(
+    
+   4,
+    '3 msk,',
+    '7 dl',
+    '25 g',
+    '0'
+),
+(
+     5,
+    '2 msk,',
+    '3 dl',
+    '25 g',
+    '0'
+);

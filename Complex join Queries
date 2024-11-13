@@ -1,0 +1,27 @@
+
+SELECT 
+CustomerName,
+Quantity AS 'Ordered',
+Products.Name,
+ItemNumber,
+Products.Price AS 'Price/Kg',
+Products.PRICE * OrderItems.Quantity AS Total,
+Products.Stock - OrderItems.Quantity AS 'In Stock',
+Suppliers.Name AS Supplier,
+Representative AS ContactPerson
+
+FROM Customers INNER JOIN OrderItems
+ON Customers.Id = OrderItems.CustomerId INNER JOIN Products 
+ON OrderItems.ProductId = Products.Id INNER JOIN Suppliers
+ON Suppliers.ProductId = Products.SupplierId;
+
+SELECT 
+Products.Name,
+Ingredients,
+Sugar, BakingSoda, Yeast, Flour,
+Water, Milk, Eggs, Butter
+FROM Products INNER JOIN ProductRecipes
+ON Products.ProductRecipeId = ProductRecipes.Id INNER JOIN Details
+ON ProductRecipes.DetailsId = Details.Id INNER JOIN WetIngredients
+ON WetIngredients.Id = Details.WetIngredientsId INNER JOIN DryIngredients
+ON DryIngredients.Id = Details.DryIngredientsId;

@@ -1,0 +1,10 @@
+DELETE FROM Customers;
+
+INSERT INTO Customers(
+    Id,
+    CustomerName
+)
+VALUES(
+    1,
+    'Mormor Dagnys'
+);

@@ -1,0 +1,37 @@
+DELETE FROM Addresses;
+INSERT INTO Addresses(
+    Id,
+    SupplierId,
+    AddressLine,
+    PostalCode,
+    City
+)
+VALUES
+(
+    1,
+    1,
+     'Stockholmsvägen 92',
+     '211-22',
+     'Ljungby'
+),
+(
+    2,
+    2,
+    'Mjödvägen 6',
+    '284-42',
+    'Göteborg'
+),
+(
+    3,
+    3,
+    'Ängelholmsgatan 22',
+    '254-24',
+    'Ängelholm'
+),
+(
+    4,
+    4,
+    'Vinlandsvägen 1',
+    '299-45',
+    'Stockholm'
+);

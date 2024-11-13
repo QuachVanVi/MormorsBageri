@@ -1,0 +1,96 @@
+DROP TABLE IF EXISTS Suppliers;
+DROP TABLE IF EXISTS Addresses;
+DROP TABLE IF EXISTS SupplierInfo;
+DROP TABLE IF EXISTS OrderItems;
+DROP TABLE IF EXISTS Products;
+DROP TABLE IF EXISTS ProductRecipes;
+DROP TABLE IF EXISTS Details;
+DROP TABLE IF EXISTS WetIngredients;
+DROP TABLE IF EXISTS DryIngredients;
+
+
+CREATE TABLE IF NOT EXISTS Suppliers(
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    AddressesId INTEGER NOT NULL,
+    ProductId INTEGER NOT NULL,
+    Name TEXT NOT NULL,
+    Representative TEXT NOT NULL UNIQUE,
+    FOREIGN KEY (AddressesId) REFERENCES Addresses(Id),
+    FOREIGN KEY(ProductId) REFERENCES Products(Id)
+
+);
+
+CREATE TABLE IF NOT EXISTS Addresses(
+    Id INTEGER UNIQUE,
+    AddressLine TEXT NOT NULL,
+    PostalCode TEXT NOT NULL,
+    SupplierId INTEGER NOT NULL UNIQUE,
+    City TEXT NOT NULL,
+    PRIMARY KEY(Id, SupplierId),
+    FOREIGN KEY (SupplierId) REFERENCES Suppliers(Id)
+);
+
+CREATE TABLE IF NOT EXISTS SupplierInfo(
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Phone TEXT NOT NULL UNIQUE,
+    Email TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS OrderItems(
+    CustomerId INTEGER NOT NULL,
+    ProductId INTEGER NOT NULL,
+    Quantity INTEGER,
+    Price FLOAT,
+    PRIMARY KEY(CustomerId, ProductId),
+    FOREIGN KEY(CustomerId) REFERENCES Customer(Id),
+    FOREIGN KEY(ProductId) REFERENCES Products(Id)
+);
+
+CREATE TABLE IF NOT EXISTS Products(
+    Id INTEGER,
+    SupplierId INTEGER,
+    ProductRecipeId INTEGER NOT NULL,
+    ItemNumber INTEGER NOT NULL UNIQUE,
+    Name TEXT NOT NULL,
+    Price FLOAT,
+    Stock INTEGER NOT NULL,
+    PRIMARY KEY(Id, ProductRecipeId, SupplierId),
+    FOREIGN KEY(ProductRecipeId) REFERENCES ProductRecipes(Id)
+);
+
+CREATE TABLE IF NOT EXISTS Customers(
+    Id INTEGER PRIMARY KEY,
+    CustomerName TEXT NOT NULL UNIQUE
+);
+CREATE TABLE IF NOT EXISTS ProductRecipes(
+Id INTEGER,
+Ingredients TEXT NOT NULL,
+DetailsId INTEGER NOT NULL UNIQUE,
+PRIMARY KEY(Id, DetailsId),
+FOREIGN KEY(DetailsId) REFERENCES Details(Id)
+);
+
+CREATE TABLE IF NOT EXISTS Details(
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+       WetIngredientsId INTEGER NOT NULL UNIQUE,
+       DryIngredientsId INTEGER NOT NULL UNIQUE
+      );
+
+CREATE TABLE IF NOT EXISTS WetIngredients(
+    Id INTEGER UNIQUE,
+    Water TEXT NOT NULL,
+    Milk TEXT NOT NULL,
+    Eggs TEXT NOT NULL,
+    Butter TEXT NOT NULL,
+    PRIMARY KEY(Id)
+);
+
+CREATE TABLE IF NOT EXISTS DryIngredients(
+    Id INTEGER UNIQUE,
+    Sugar TEXT NOT NULL,
+    BakingSoda TEXT NOT NULL,
+    Yeast TEXT NOT NULL,
+    Flour TEXT NOT NULL,
+    PRIMARY KEY(Id)
+
+);
