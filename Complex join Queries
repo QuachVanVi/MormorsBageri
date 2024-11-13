@@ -6,7 +6,7 @@ Products.Name,
 ItemNumber,
 Products.Price AS 'Price/Kg',
 Products.PRICE * OrderItems.Quantity AS Total,
-Products.Stock - OrderItems.Quantity AS 'In Stock',
+Products.Stock - OrderItems.Quantity AS 'In Stock left',
 Suppliers.Name AS Supplier,
 Representative AS ContactPerson
 

@@ -47,23 +47,25 @@ CREATE TABLE IF NOT EXISTS OrderItems(
 );
 
 CREATE TABLE IF NOT EXISTS Products(
-    Id INTEGER,
-    SupplierId INTEGER,
+    Id INTEGER NOT NULL,
+    SupplierId INTEGER NOT NULL,
     ProductRecipeId INTEGER NOT NULL,
     ItemNumber INTEGER NOT NULL UNIQUE,
     Name TEXT NOT NULL,
     Price FLOAT,
     Stock INTEGER NOT NULL,
     PRIMARY KEY(Id, ProductRecipeId, SupplierId),
-    FOREIGN KEY(ProductRecipeId) REFERENCES ProductRecipes(Id)
+    FOREIGN KEY(ProductRecipeId) REFERENCES ProductRecipes(Id),
+    FOREIGN KEY(SupplierId) REFERENCES Suppliers(Id)
 );
 
 CREATE TABLE IF NOT EXISTS Customers(
     Id INTEGER PRIMARY KEY,
     CustomerName TEXT NOT NULL UNIQUE
 );
+
 CREATE TABLE IF NOT EXISTS ProductRecipes(
-Id INTEGER,
+Id INTEGER NOT NULL,
 Ingredients TEXT NOT NULL,
 DetailsId INTEGER NOT NULL UNIQUE,
 PRIMARY KEY(Id, DetailsId),
